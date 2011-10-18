@@ -53,7 +53,7 @@ module ETL #:nodoc:
           end
         end
       end
-      
+
       def order
         parser.fields.collect {|field| field.name}
       end

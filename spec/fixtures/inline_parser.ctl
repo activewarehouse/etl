@@ -9,8 +9,8 @@ end
 source :in, {
   :file => '',
   :parser => MyParser
-}, 
-[ 
+},
+[
   :name
 ]
 

@@ -3,7 +3,7 @@
 source :in, {
   :file => 'data/sax.xml',
   :parser => :sax
-}, 
+},
 {
   :write_trigger => 'people/person',
   :fields => {
@@ -21,7 +21,7 @@ transform :age, :type, {:type => :number}
 
 destination :out, {
   :file => 'output/sax.out.txt'
-}, 
+},
 {
   :order => [:first_name, :last_name, :ssn, :age, :sex]
 }

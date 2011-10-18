@@ -7,10 +7,10 @@ create table people (
 );
 drop table if exists places;
 create table places (
-	address text,
-	city char(255),
-	state char(255),
-	country char(2)
+  address text,
+  city char(255),
+  state char(255),
+  country char(2)
 );
 
 drop table if exists person_dimension;
@@ -30,7 +30,7 @@ create table person_dimension (
 drop table if exists truncate_test;
 create table truncate_test (
   id int not null primary key auto_increment,
-	x char(4)
+  x char(4)
 );
 insert into truncate_test (x) values ('a');
 insert into truncate_test (x) values ('b');

@@ -3,7 +3,7 @@
 source :in, {
   :file => 'data/xml.xml',
   :parser => :xml
-}, 
+},
 {
   :collection => 'people/person',
   :fields => [
@@ -23,7 +23,7 @@ source :in, {
 
 destination :out, {
   :file => 'output/xml.txt'
-}, 
+},
 {
   :order => [:first_name, :last_name, :ssn, :age, :sex]
 }

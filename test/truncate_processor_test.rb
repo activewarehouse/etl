@@ -11,7 +11,7 @@ class TruncateProcessorTest < Test::Unit::TestCase
   def create_item!
     TruncateTest.create!(:x => 'ABC')
   end
-  
+
   def truncate!(options=nil)
     TruncateProcessor.new(nil,
       :target => :data_warehouse,
@@ -19,7 +19,7 @@ class TruncateProcessorTest < Test::Unit::TestCase
       :options => options
       ).process
   end
-  
+
   should 'reset ids by default' do
     create_item!
     truncate!

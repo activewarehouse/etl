@@ -3,8 +3,8 @@
 source :in, {
   :file => 'data/multiple_delimited_*.txt',
   :parser => :csv
-}, 
-[ 
+},
+[
   :first_name,
   :last_name,
   :ssn,
@@ -16,7 +16,7 @@ source :in, {
 
 destination :out, {
   :file => 'output/multiple_delimited.txt'
-}, 
+},
 {
   :order => [:first_name, :last_name, :ssn, :age]
 }

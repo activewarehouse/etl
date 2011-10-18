@@ -10,10 +10,10 @@ create table people (
 drop table places;
 create table places (
   id SERIAL PRIMARY KEY,
-	address text,
-	city character varying(255),
-	state character varying(255),
-	country character varying(2)
+  address text,
+  city character varying(255),
+  state character varying(255),
+  country character varying(2)
 );
 
 drop table person_dimension;
@@ -33,7 +33,7 @@ create table person_dimension (
 drop table truncate_test;
 create table truncate_test (
   id SERIAL PRIMARY KEY,
-	x character varying(4)
+  x character varying(4)
 );
 insert into truncate_test (x) values ('a');
 insert into truncate_test (x) values ('b');

@@ -87,7 +87,7 @@ class ScdTest < Test::Unit::TestCase
           do_type_2_run(1)
           assert_equal 1, find_bobs.last.id, "scheduled load expected to be empty"
         end
-        
+
       end
       context "on run 2" do
         setup do
@@ -184,39 +184,39 @@ class ScdTest < Test::Unit::TestCase
       end
     end
   end
-  
+
   def do_type_2_run(run_num)
     ENV['run_number'] = run_num.to_s
     assert_nothing_raised do
       run_ctl_file("scd_test_type_2.ctl")
     end
   end
-  
+
   def do_type_2_run_with_only_city_state_zip_scd(run_num)
     ENV['type_2_scd_fields'] = Marshal.dump([:city, :state, :zip_code])
     do_type_2_run(run_num)
   end
-  
+
   def do_type_1_run(run_num)
     ENV['run_number'] = run_num.to_s
     assert_nothing_raised do
       run_ctl_file("scd_test_type_1.ctl")
     end
   end
-  
+
   def lines_for(file)
     File.readlines(File.dirname(__FILE__) + "/output/#{file}")
   end
-  
+
   def run_ctl_file(file)
     ETL::Engine.process(File.dirname(__FILE__) + "/#{file}")
   end
-  
+
   def count_bobs
     @connection.select_value(
       "SELECT count(*) FROM person_dimension WHERE first_name = 'Bob' and last_name = 'Smith'").to_i
   end
-  
+
   def find_bobs
     bobs = @connection.select_all(
       "SELECT * FROM person_dimension WHERE first_name = 'Bob' and last_name = 'Smith'")
@@ -236,18 +236,18 @@ class ScdTest < Test::Unit::TestCase
     end
     bobs
   end
-  
+
   def current_datetime
     DateTime.parse(Time.now.to_s(:db))
   end
-  
+
   def assert_boston_address(bob, street = "200 South Drive")
     assert_equal street, bob['address'], bob.inspect
     assert_equal "Boston", bob['city'], bob.inspect
     assert_equal "MA", bob['state'], bob.inspect
     assert_equal "32123", bob['zip_code'], bob.inspect
   end
-  
+
   def assert_los_angeles_address(bob, street = "1010 SW 23rd St")
     assert_equal street, bob['address'], bob.inspect
     assert_equal "Los Angeles", bob['city'], bob.inspect

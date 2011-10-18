@@ -3,8 +3,8 @@
 source :in, {
   :file => 'delimited.txt',
   :parser => :csv
-}, 
-[ 
+},
+[
   :first_name,
   :last_name,
   :ssn,

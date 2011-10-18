@@ -5,7 +5,7 @@ source :in, {
 
 destination :out, {
   :file => 'output/apache_combined_log.txt'
-}, 
+},
 {
   :order => []
 }

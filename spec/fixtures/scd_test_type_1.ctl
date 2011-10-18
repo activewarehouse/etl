@@ -26,7 +26,7 @@ destination :out, {
     :dimension_table => 'person_dimension'
   },
   :scd_fields => [:address, :city, :state, :zip_code]
-}, 
+},
 {
   :order => [
     :id, :first_name, :last_name, :address, :city, :state, :zip_code, :effective_date, :end_date, :latest_version

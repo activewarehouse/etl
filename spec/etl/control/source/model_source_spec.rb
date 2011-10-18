@@ -8,6 +8,6 @@ describe ETL::Control::ModelSource do
   let(:definition)  { [:first_name, :last_name, :ssn] }
 
   pending "should find n rows" do
-    
+
   end
 end

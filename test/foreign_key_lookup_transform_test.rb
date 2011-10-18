@@ -3,11 +3,11 @@ require File.dirname(__FILE__) + '/test_helper'
 # TODO - use flexmock instead, but I'm not sure how to handle the respond_to part yet
 class TestResolver
   attr_accessor :cache_loaded
-  
+
   def initialize
     @cache_loaded = false
   end
-  
+
   def load_cache
     @cache_loaded = true
   end
@@ -25,13 +25,13 @@ class ForeignKeyLookupTransformTest < Test::Unit::TestCase
 
       assert_equal true, resolver.cache_loaded
     end
-    
+
     should 'allow to disable cache' do
       resolver = TestResolver.new
 
       transform = ETL::Transform::ForeignKeyLookupTransform.new(nil, 'name',
         {:resolver => resolver, :cache => false})
-        
+
       assert_equal false, resolver.cache_loaded
     end
 
@@ -40,11 +40,11 @@ class ForeignKeyLookupTransformTest < Test::Unit::TestCase
 
       transform = ETL::Transform::ForeignKeyLookupTransform.new(nil, 'name',
         {:resolver => resolver, :cache => true})
-        
+
       assert_equal true, resolver.cache_loaded
     end
-    
+
   end
-  
+
 
 end

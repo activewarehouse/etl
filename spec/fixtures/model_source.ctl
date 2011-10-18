@@ -1,7 +1,7 @@
 source :in, {
   :type => :model
-}, 
-[ 
+},
+[
   :first_name,
   :last_name
 ]

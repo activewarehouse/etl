@@ -18,12 +18,12 @@ def common_gemfile(rails_version)
 
   gem "mysql", "2.8.1"
   gem "pg", "0.11.0"
-  
+
   gem "nokogiri", "1.4.4"
-  
+
   gem "rdoc"
-  
+
   gem "adapter_extensions", :git => 'git@github.com:activewarehouse/adapter_extensions.git'
-  
+
   gem "jruby-openssl" if RUBY_PLATFORM == "java"
 end

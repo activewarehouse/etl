@@ -6,16 +6,16 @@ source :in, {
   :parser => {
     :name => :csv
   }
-}, 
-[ 
+},
+[
   :first_name,
   :last_name,
 ]
 
 before_write :surrogate_key, :target => :data_warehouse, :table => 'person_dimension', :column => 'id'
 before_write :check_exist, {
-  :target => :data_warehouse, 
-  :table => 'person_dimension', 
+  :target => :data_warehouse,
+  :table => 'person_dimension',
   :columns => [:first_name, :last_name]
 }
 

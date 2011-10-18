@@ -3,7 +3,7 @@
 source :in, {
   :file => 'data/fixed_width.txt',
   :parser => :fixed_width
-}, 
+},
 {
   :first_name => {
     :start => 1,
@@ -33,7 +33,7 @@ transform(:ssn){ |n, v, r| v[0,24] }
 
 destination :out, {
   :file => 'output/fixed_width.txt'
-}, 
+},
 {
   :order => [:first_name, :last_name, :ssn, :age, :sex]
 }

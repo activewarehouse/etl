@@ -28,7 +28,6 @@ REXML::VERSION = REXML::Version unless defined?(REXML::VERSION)
 require 'logger'
 require 'yaml'
 require 'erb'
-require 'active_support'
 require 'active_support/core_ext'
 require 'active_record'
 require 'adapter_extensions'
