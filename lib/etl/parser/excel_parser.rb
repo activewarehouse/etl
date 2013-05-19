@@ -4,7 +4,7 @@ module ETL
   class Parser
     class ExcelParser < ETL::Parser
 
-      attr_accessor :ignore_blank_line
+      attr_accessor :ignore_blank_line, :worksheet_column
 
       # Initialize the parser
       # * <tt>source</tt>: The Source object
@@ -49,6 +49,7 @@ module ETL
                 f = fields[index]
                 row[f.name] = value
               end
+              row[worksheet_column] = raw_row.worksheet.name if worksheet_column
               yield row
             end
           end
@@ -87,6 +88,7 @@ module ETL
         end unless source.definition[:worksheets].nil?
 
         self.ignore_blank_line = source.definition[:ignore_blank_line]
+        self.worksheet_column  = source.definition[:worksheet_column]
 
         source.definition[:fields].each do |options|
           case options
