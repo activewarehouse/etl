@@ -310,12 +310,13 @@ module ETL #:nodoc:
     def process_control(control)
       control = ETL::Control.resolve(control)
       say_on_own_line "Processing control #{control.file}"
-
-      ETL::Engine.job = ETL::Execution::Job.create!(
-        :control_file => control.file,
-        :status => 'executing',
-        :batch_id => ETL::Engine.batch ? ETL::Engine.batch.id : nil
-      )
+      
+      ETL::Engine.job = ETL::Execution::Job.new.tap do |job|
+        job.control_file = control.file
+        job.status = 'executing'
+        job.batch_id = ETL::Engine.batch ? ETL::Engine.batch.id : nil
+        job.save!
+      end
 
       execute_dependencies(control)
 
