@@ -11,7 +11,10 @@ source :in, {
       :ssn,
       :age,
       :sex
-  ]
+  ] #,
+  #  Add worksheet column  e.g.
+  #  In case the schemas of sheets are the same but their data should be differentiable as such.
+  # :worksheet_column => :name_info
 }
 
 transform :ssn, :sha1
